@@ -1,0 +1,79 @@
+.nav {
+  top: 0;
+  width: 100%;
+  height: 64px;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+  position: fixed;
+  z-index: 9999;
+  background-color: #fff;
+  overflow: hidden;
+  
+  &_github-logo {
+    width: 24px;
+    margin-left: 82px;
+  }
+
+  &_title {
+    position: absolute;
+    left: 153px;
+    font-style: normal;
+    font-weight: 600;
+    font-size: 14px;
+    line-height: 150%;
+    color: #6B6C7E;
+  }
+
+  &_filter {
+    position: absolute;
+    left: 300px;
+    font-style: normal;
+    font-weight: 600;
+    font-size: 14px;
+    line-height: 150%;
+    align-items: center;
+    text-align: center;
+    color: #6B6C7E;
+    margin: 0px 10px;
+  }
+
+  &_search {
+    width: 519px;
+    height: 40px;
+    padding: 8px 16px;
+    position: absolute;
+    margin-left: 471px;
+    background: #F1F2F5;
+    border: 1px solid #E7E7ED;
+    box-sizing: border-box;
+    border-radius: 4px 0px;
+  }
+
+  &_star-o {
+    margin-left: 946.03px;
+    width: 15.94px;
+    height: 15.94px;
+    cursor: pointer;
+  }
+
+  &_adjust {
+    margin-left: 52.03px;
+    width: 16px;
+    height: 16px;
+    cursor: pointer;
+  }
+
+  &_cards2 {
+    margin-left: 52px;
+    width: 16px;
+    height: 16px;
+    cursor: pointer;
+  }
+
+  &_button-add {
+    margin-left: 52px;
+    cursor: pointer;
+  }
+}
