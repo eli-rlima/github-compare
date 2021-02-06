@@ -32,7 +32,10 @@ const reducer = (state = initialState(), action) => {
     }
     case `${TEMPLATE_NAME}_ADD_FULFILLED`: {
       const repository = action.payload;
-      const data = [repository, ...state.data];
+      const { id } = repository;
+      const repositoryExists = state.data.filter(repo => repo.id === id).length > 0;
+      const data = repositoryExists ? state.data : [repository, ...state.data];
+
       return {
         ...state,
         loading: false,
