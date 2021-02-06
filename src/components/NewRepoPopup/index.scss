@@ -1,0 +1,40 @@
+.new-repo {
+  position: absolute;
+  width: 447px;
+  height: 211px;
+  right: 5%;
+  top: 55px;
+  z-index: 9999;
+  background: #FFFFFF;
+  box-shadow: 0px 4px 8px rgba(39, 40, 51, 0.12);
+  border: 1px solid #fff;
+  border-radius: 4px;
+
+  &_title {
+    font-style: normal;
+    font-weight: 600;
+    font-size: 18px;
+    line-height: 150%;
+    color: #000000;
+    margin: 9px 24px;
+  }
+
+  &_container-input {
+    display: flex;
+    flex-direction: column;
+  }
+
+  &_container-button {
+    position: absolute;
+    height: 64px;
+    left: 0px;
+    right: 0px;
+    bottom: 0px;
+    background: #FFFFFF;
+    border-top: 1px solid #E7E7ED;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+    align-items: center;
+  }
+}
