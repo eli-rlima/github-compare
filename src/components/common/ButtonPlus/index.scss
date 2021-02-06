@@ -1,0 +1,21 @@
+.btn-plus {
+  width: 31px;
+  height: 31px;
+  padding: 8px, 12px, 8px, 12px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: #0B5FFF;
+  border: 1px solid #0B5FFF;
+  border-radius: 4px;
+  cursor: pointer;
+
+  svg {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    align-self: center;
+    width: 16px;
+    height: 16px;
+  }
+}

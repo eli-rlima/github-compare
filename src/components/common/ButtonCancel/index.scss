@@ -1,0 +1,29 @@
+.btn-cancel {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 8px 12px;
+  height: 32px;
+  width: 72px;
+  margin-right: 16px;
+  background: #FFFFFF;
+  border: 1px solid #CDCED9;
+  box-sizing: border-box;
+  border-radius: 4px;
+  cursor: pointer;
+
+  text {
+    height: 21px;
+    font-style: normal;
+    font-weight: 600;
+    font-size: 14px;
+    line-height: 150%;
+    color: #6B6C7E;
+    margin: 0px 10px;
+  }
+
+  &:focus {
+    outline: none;
+  }
+}

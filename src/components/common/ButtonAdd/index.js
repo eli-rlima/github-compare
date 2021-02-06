@@ -1,16 +1,23 @@
 // Global
 import React from 'react';
-// Assets
-import Plus from 'assets/icons/plus';
+import PropTypes from 'prop-types';
 // Stylesheet
 import './index.scss';
 
-function ButtonAdd() {
+function ButtonAdd({ onClick, disabled }) {
   return (
-    <div className="button">
-      <Plus />
-    </div>
+    <button
+      className={!disabled ? 'btn-add' : 'btn-add_disabled'}
+      onClick={!disabled ? onClick : () => {}}
+    >
+      <text>Add</text>
+    </button>
   );
+}
+
+ButtonAdd.propTypes = {
+  onClick: PropTypes.func,
+  disabled: PropTypes.bool,
 }
 
 export default ButtonAdd;

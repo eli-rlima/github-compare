@@ -1,15 +1,54 @@
-.button {
-  width: 32px;
-  height: 32px;
-  padding: 8px, 12px, 8px, 12px;
+.btn-add {
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
+  width: 51px;
+  height: 31px;
+  margin-right: 24px;
+  padding: 8px 12px;
   background: #0B5FFF;
   border-radius: 4px;
+  border: 1px solid #0B5FFF;
+  cursor: pointer;
 
-  svg {
-    width: 16px;
-    height: 16px;
+  text {
+    height: 21px;
+    font-style: normal;
+    font-weight: 600;
+    font-size: 14px;
+    line-height: 150%;
+    color: #FFFFFF;
+    margin: 0px 10px;
+  }
+}
+
+.btn-add_disabled {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 51px;
+  height: 31px;
+  margin-right: 24px;
+  padding: 8px 12px;
+  background: #0B5FFF;
+  opacity: 0.4;
+  border-radius: 4px;
+  border: 1px solid #0B5FFF;
+  cursor: default;
+
+  text {
+    height: 21px;
+    font-style: normal;
+    font-weight: 600;
+    font-size: 14px;
+    line-height: 150%;
+    color: #FFFFFF;
+    margin: 0px 10px;
+  }
+
+  &:focus {
+    outline: none;
   }
 }
