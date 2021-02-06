@@ -1,5 +1,6 @@
 // Global
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
 import PropTypes from 'prop-types';
 // Components
 import ConditionalWrapper from 'components/common/ConditionalWrapper';
@@ -8,20 +9,44 @@ import ButtonAdd from 'components/common/ButtonAdd';
 import Input from 'components/common/Input';
 import Label from 'components/common/Label';
 import ErrorLabel from 'components/common/ErrorLabel';
+// Actions
+import { add, error as errorAction } from 'redux/actions/repositories.action';
+import { show } from 'redux/actions/popup.action';
 // Stylesheet
 import './index.scss';
 
-function NewRepoModal({ show, onClickCancel, onClickAdd, error }) {
+function NewRepoModal() {
   const [repoName, setRepoName] = useState('');
+  const dispatch = useDispatch();
+  const { error } = useSelector(state => state.repositories);
+  const { isOpened } = useSelector(state => state.popup);
+
+  useEffect(() => {
+    if (!isOpened) {
+      dispatch(errorAction(false));
+      setRepoName('');
+    }
+  },[isOpened, dispatch]);
 
   const onChange = (e, target) => {
     const { value } = target || e.target;
-
+    
     setRepoName(value);
+    if (error) {
+      dispatch(errorAction(false));
+    }
+  }
+
+  const onClickCancel = () => {
+    dispatch(show(false));
+  }
+
+  const onClickAdd = term => {
+    dispatch(add(term));
   }
 
   return (
-    <ConditionalWrapper condition={show}>
+    <ConditionalWrapper condition={isOpened}>
       <div className='new-repo'>
         <div className='new-repo_title'>
           <text>New Repository</text>
@@ -47,7 +72,7 @@ function NewRepoModal({ show, onClickCancel, onClickAdd, error }) {
             onClick={onClickCancel}
           />
           <ButtonAdd
-            onClick={onClickAdd}
+            onClick={() => onClickAdd(repoName)}
             disabled={error || repoName === ''}
           />
         </div>
