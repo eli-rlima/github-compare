@@ -1,7 +1,8 @@
 // Global
 import React from 'react';
+import PropTypes from 'prop-types';
 // Components
-import ButtonAdd from 'components/common/ButtonAdd';
+import ButtonPlus from 'components/common/ButtonPlus';
 // Assets
 import GitHubLogo from 'assets/logo/github_logo';
 import StarIcon from 'assets/icons/star-o';
@@ -10,7 +11,7 @@ import AdjustIcon from 'assets/icons/adjust'
 // Stylesheet
 import './index.scss';
 
-function Navbar() {
+function Navbar({ onClick }) {
 
   return (
     <div className='nav'>
@@ -30,10 +31,14 @@ function Navbar() {
         <Cards2Icon />
       </div>
       <div className='nav_button-add'>
-        <ButtonAdd />
+        <ButtonPlus onClick={onClick} />
       </div>
     </div>
   );
+}
+
+Navbar.propTypes = {
+  onClick: PropTypes.func,
 }
 
 export default Navbar;
