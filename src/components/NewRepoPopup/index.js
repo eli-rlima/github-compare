@@ -7,6 +7,7 @@ import ButtonCancel from 'components/common/ButtonCancel';
 import ButtonAdd from 'components/common/ButtonAdd';
 import Input from 'components/common/Input';
 import Label from 'components/common/Label';
+import ErrorLabel from 'components/common/ErrorLabel';
 // Stylesheet
 import './index.scss';
 
@@ -35,6 +36,10 @@ function NewRepoModal({ show, onClickCancel, onClickAdd, error }) {
             error={error}
             onChange={onChange}
             value={repoName}
+          />
+          <ErrorLabel 
+            text="This is API-feedback-error"
+            error={error}
           />
         </div>
         <div className='new-repo_container-button'>
