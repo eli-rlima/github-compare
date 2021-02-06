@@ -1,6 +1,7 @@
 // Global
 import React from 'react';
 import PropTypes from 'prop-types';
+import { formatDistanceStrict } from 'date-fns'
 // Assets
 import StarIcon from 'assets/icons/star-o';
 import TrashIcon from 'assets/icons/trash';
@@ -11,7 +12,7 @@ function Card({ name, startsCount, forksCount, openIssues, age, lastCommit, lice
   return (
     <div className='card'>
       <div className='card_header'>
-        <img src='https://avatars.githubusercontent.com/u/131436?v=4' alt='' />
+        <img src={urlAvatar} alt='' />
         <text>{name}</text>
         <div className='card_header_star-icon'>
           <StarIcon />
@@ -35,18 +36,20 @@ function Card({ name, startsCount, forksCount, openIssues, age, lastCommit, lice
         </div>
         <div className='card_body_params'>
           <text>Age </text>
-          <span>{age}</span>
+          <span>{formatDistanceStrict(new Date(age), new Date())} ago</span>
         </div>
         <div className='card_body_params'>
           <text>Last commit </text>
-          <span>{lastCommit}</span>
+          <span>{formatDistanceStrict(new Date(lastCommit), new Date())} ago</span>
         </div>
         <div className='card_body_params'>
           <text>License </text>
-          <span>{license}</span>
+          <span>
+            { license ? license.spdx_id === "NOASSERTION" ? "N/A" : license.name : "No License" }
+          </span>
         </div>
         <div className='card_body_language'>
-          <text>{language}</text>
+          <text>{language || "No Language defined"}</text>
         </div>
       </div>
     </div>
