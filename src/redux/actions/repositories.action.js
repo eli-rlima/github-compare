@@ -21,6 +21,13 @@ export const add = term => {
   }
 }
 
+export const search = term => {
+  return {
+    type: `${TEMPLATE_NAME}_SEARCH`,
+    payload: term,
+  };
+}
+
 export const error = action => {
   return {
     type: `${TEMPLATE_NAME}_ERROR`,

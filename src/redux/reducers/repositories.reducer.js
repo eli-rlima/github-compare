@@ -52,6 +52,17 @@ const reducer = (state = initialState(), action) => {
         error: true,
       }
     }
+    case `${TEMPLATE_NAME}_SEARCH`: {
+      const term = action.payload;
+      return {
+          ...state,
+          filter: {
+              ...state.filter,
+              term,
+              data: filterData(state.data, term),
+          },
+      };
+    }
     case `${TEMPLATE_NAME}_ERROR`: {
       const error = action.payload;
       return {

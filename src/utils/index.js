@@ -22,9 +22,9 @@ export function sortNumber(a, b) {
 */
 export const sortByKeyDesc = (array, key) => array.sort(
   function (a, b) {
-      const x = a[key];
-      const y = b[key];
-      return ((x > y) ? -1 : ((x < y) ? 1 : 0));
+    const x = a[key];
+    const y = b[key];
+    return ((x > y) ? -1 : ((x < y) ? 1 : 0));
   });
 
 /**
@@ -34,9 +34,9 @@ export const sortByKeyDesc = (array, key) => array.sort(
 */
 export const sortByKeyAsc = (array, key) => array.sort(
   function (a, b) {
-      const x = a[key];
-      const y = b[key];
-      return ((x > y) ? -1 : ((x > y) ? 1 : 0));
+    const x = a[key];
+    const y = b[key];
+    return ((x > y) ? -1 : ((x > y) ? 1 : 0));
   });
 
 /**
@@ -47,9 +47,9 @@ export const sortByKeyAsc = (array, key) => array.sort(
 export function debounce(func, wait) {
   let timeout;
   return function (...args) {
-      const context = this;
-      clearTimeout(timeout);
-      timeout = setTimeout(() => func.apply(context, args), wait);
+    const context = this;
+    clearTimeout(timeout);
+    timeout = setTimeout(() => func.apply(context, args), wait);
   };
 }
 
