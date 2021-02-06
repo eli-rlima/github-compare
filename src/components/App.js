@@ -1,15 +1,21 @@
 // Global
 import React, { useState } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
 // Components
 import Navbar from 'components/Navbar';
 import EmptyState from 'components/EmptyState';
 import NewRepoPopup from 'components/NewRepoPopup';
+import Grid from 'components/Grid';
+// Actions
+import { show } from 'redux/actions/popup.action';
 // Stylesheet
 import './App.scss';
 
 function App() {
-  const [showPopup, setShowPopup] = useState(false);
   const [search, setSearch] = useState('');
+  const dispatch = useDispatch();
+  const { isOpened } = useSelector(state => state.popup);
+  const { data } = useSelector(state => state.repositories.filter);
 
   const onChange = (e, target) => {
     const { value } = target || e.target;
@@ -17,21 +23,21 @@ function App() {
     setSearch(value);
   }
 
+  const showPopup = action => {
+    dispatch(show(action));
+  }
+
   return (
     <div className='App'>
       <Navbar 
-        onClick={() => setShowPopup(!showPopup)}
+        onClick={() => showPopup(!isOpened)}
         onChange={onChange}
         value={search}
       />
       <div className='body'>
-        <EmptyState />
-        <NewRepoPopup 
-          show={showPopup} 
-          onClickCancel={() => setShowPopup(false)}
-          error={false} 
-        />
+        {data.length > 0 ? <Grid data={data} as="grid" /> : <EmptyState />}
       </div>
+      <NewRepoPopup />
     </div>
   );
 }
