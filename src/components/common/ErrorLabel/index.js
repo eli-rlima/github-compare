@@ -2,7 +2,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 // Components
-import ConditionalWrapper from 'components/ConditionalWrapper';
+import ConditionalWrapper from 'components/common/ConditionalWrapper';
 // Assets
 import ExclamationFullIcon from 'assets/icons/exclamation-full';
 // Stylesheet

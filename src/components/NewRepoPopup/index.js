@@ -2,7 +2,7 @@
 import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 // Components
-import ConditionalWrapper from 'components/ConditionalWrapper';
+import ConditionalWrapper from 'components/common/ConditionalWrapper';
 import ButtonCancel from 'components/common/ButtonCancel';
 import ButtonAdd from 'components/common/ButtonAdd';
 import Input from 'components/common/Input';
