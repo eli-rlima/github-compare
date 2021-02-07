@@ -36,7 +36,7 @@ function Navbar({ onClick, onChange, value, onClickOrder, onClickFavoriteFilter,
         onClick={onClickOrder}
       />
       <Search 
-        style={{ width: 519 }}
+        style={{ width: '519px' }}
         placeholder="Search"
         onChange={onChange}
         value={value}
