@@ -13,7 +13,7 @@ function Card({ favorite, onClickFavorite, onClickRemove, name, startsCount, for
   return (
     <div className='card'>
       <div className='card_header'>
-        <img src={urlAvatar} alt='' />
+        <img src={urlAvatar} alt='avatar' />
         <text>{name}</text>
         <div className='card_header_star-icon'>
           <ButtonFavorite onClick={onClickFavorite} value={favorite}/>
