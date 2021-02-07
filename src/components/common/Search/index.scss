@@ -1,0 +1,13 @@
+.search {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: flex-end;
+
+  &_icon {
+    position: absolute;
+    width: 16px;
+    height: 16px;
+    padding: 12px;
+  }
+}

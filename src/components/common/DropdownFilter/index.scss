@@ -1,0 +1,120 @@
+.dropdown-filter {
+  &_title {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+
+    &_button {
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      padding: 8px 12px;
+      border: none;
+      border-radius: 4px;
+      margin: 0px 0px;
+      background-color: #fff;
+      outline: none;
+      cursor: pointer;
+
+      text {
+        font-style: normal;
+        font-weight: 600;
+        font-size: 14px;
+        line-height: 150%;
+        color: #6B6C7E;
+        margin: 0px;
+      }
+
+      &_active {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        padding: 7px 11px;
+        background: #F1F2F5;
+        border: 1px solid #CDCED9;
+        box-sizing: border-box;
+        border-radius: 4px;
+        margin: 0px 0px;
+        outline: none;
+        cursor: pointer;
+
+        text {
+          font-style: normal;
+          font-weight: 600;
+          font-size: 14px;
+          line-height: 150%;
+          color: #6B6C7E;
+          margin: 0px;
+        }
+      }
+    }
+
+    svg {
+      width: 20px;
+      height: 15px;
+      margin-left: 8px;
+    }
+  }
+
+  &_body {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    position: absolute;
+    left: 23.88%;
+    top: 80.57%;
+    width: 155px;
+    height: 239px;
+    background: #FFFFFF;
+    box-shadow: 0px 4px 8px rgba(39, 40, 51, 0.12);
+    border-radius: 4px;
+    z-index: 9999;
+    margin: 0px;
+
+    &_title-options {
+      padding: 2px 16px;
+      width: 123px;
+      height: 14px;
+      background: #FFFFFF;
+      font-style: normal;
+      font-weight: 600;
+      font-size: 12px;
+      line-height: 150%;
+      color: #272833;
+      margin: 10px 0px;
+    }
+
+    button {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      padding: 9.5px 16px;
+      width: 155px;
+      height: 40px;
+      background: #FFFFFF;
+      flex: none;
+      order: 2;
+      margin: 0px 0px;
+      border: none;
+      outline: none;
+      cursor: pointer;
+
+      &:hover {
+        background: #F0F5FF;
+
+        text {
+          color: #000;
+        }
+      }
+
+      text {
+        font-style: normal;
+        font-weight: normal;
+        font-size: 14px;
+        line-height: 150%;
+        color: #6B6C7E;
+      }
+    }
+  }
+}

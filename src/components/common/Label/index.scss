@@ -1,0 +1,23 @@
+.label {
+  flex: 1;
+  margin: 4px 24px;
+  width: 100%;
+  justify-content: start;
+  align-items: flex-start;
+
+  text {
+    font-style: normal;
+    font-weight: 600;
+    font-size: 14px;
+    line-height: 150%;
+    color: #272833;
+    margin-right: 4px;
+  }
+
+  span {
+    font-weight: 600;
+    font-size: 14px;
+    line-height: 150%;
+    color: #B95000;
+  }
+}

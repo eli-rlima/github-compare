@@ -1,0 +1,17 @@
+.App {
+  height: 100vh;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+
+  .body {
+    width: 100%;
+    height: 100%;
+    background: #E5E5E585;
+    margin-top: 64px;
+
+    .grid {
+      margin: 30px 65px 30px 65px;
+    }
+  }
+}

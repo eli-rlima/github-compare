@@ -1,0 +1,19 @@
+.error-label {
+  font-style: normal;
+  font-weight: 600;
+  font-size: 14px;
+  line-height: 150%;
+  display: flex;
+  align-items: center;
+  color: #DA1414;
+
+  svg {
+    width: 14px;
+    height: 14px;
+    margin-left: 25px;
+  }
+
+  text {
+    margin-left: 9px;
+  }
+}
