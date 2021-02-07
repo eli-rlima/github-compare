@@ -12,3 +12,9 @@ export const close = () => {
     type: `${TEMPLATE_NAME}_CLOSE`,
   }
 }
+
+export const reset = () => {
+  return {
+    type: `${TEMPLATE_NAME}_RESET`,
+  }
+}

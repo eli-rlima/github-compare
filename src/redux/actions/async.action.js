@@ -5,8 +5,8 @@
  */
 export function pending(type, payload = null) {
   return {
-      type: `${type}_PENDING`,
-      payload,
+    type: `${type}_PENDING`,
+    payload,
   };
 }
 
@@ -17,8 +17,8 @@ export function pending(type, payload = null) {
 */
 export function rejected(type, payload = null) {
   return {
-      type: `${type}_REJECTED`,
-      payload,
+    type: `${type}_REJECTED`,
+    payload,
   };
 }
 
@@ -29,7 +29,7 @@ export function rejected(type, payload = null) {
 */
 export function fulfilled(type, payload = null) {
   return {
-      type: `${type}_FULFILLED`,
-      payload,
+    type: `${type}_FULFILLED`,
+    payload,
   };
 }
