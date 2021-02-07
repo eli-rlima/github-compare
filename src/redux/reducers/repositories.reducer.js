@@ -1,5 +1,5 @@
 // Utils
-import { toSearchableString } from 'utils'
+import { toSearchableString, sortByKeyDesc, sortByDateDesc } from 'utils'
 
 const TEMPLATE_NAME = 'REPOSITORIES';
 
@@ -11,6 +11,13 @@ const filterData = (data, term) => {
     return filterByTerm(item.node_id, term) || repoName;
   });
 };
+
+const orderByData = (data, key) => {
+  if (key === 'created_at' || key === 'updated_at') {
+    return sortByDateDesc(data, key)
+  }
+  return sortByKeyDesc(data, key);
+}
 
 const initialState = () => ({
   loading: false,
@@ -60,6 +67,16 @@ const reducer = (state = initialState(), action) => {
               ...state.filter,
               term,
               data: filterData(state.data, term),
+          },
+      };
+    }
+    case `${TEMPLATE_NAME}_ORDER_BY`: {
+      const key = action.payload;
+      return {
+          ...state,
+          filter: {
+              ...state.filter,
+              data: orderByData(state.data, key),
           },
       };
     }

@@ -9,7 +9,7 @@ import NewRepoPopup from 'components/NewRepoPopup';
 import Grid from 'components/Grid';
 // Actions
 import { show } from 'redux/actions/popup.action';
-import { search as searchAction } from 'redux/actions/repositories.action';
+import { search as searchAction, orderBy } from 'redux/actions/repositories.action';
 // Stylesheet
 import './App.scss';
 
@@ -29,6 +29,10 @@ function App() {
     }
   }
 
+  const onClickOrder = key => {
+    dispatch(orderBy(key));
+  }
+
   const clearSearch = () => {
     if (data.length === 0) {
       setSearch('');
@@ -45,6 +49,7 @@ function App() {
     <div className='App'>
       <Navbar 
         onClick={() => showPopup(!isOpened)}
+        onClickOrder={onClickOrder}
         onChange={onChange}
         value={search}
       />

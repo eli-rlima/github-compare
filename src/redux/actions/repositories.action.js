@@ -28,6 +28,13 @@ export const search = term => {
   };
 }
 
+export const orderBy = key => {
+  return {
+    type: `${TEMPLATE_NAME}_ORDER_BY`,
+    payload: key,
+  };
+}
+
 export const error = action => {
   return {
     type: `${TEMPLATE_NAME}_ERROR`,

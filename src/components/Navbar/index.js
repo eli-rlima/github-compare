@@ -13,14 +13,14 @@ import AdjustIcon from 'assets/icons/adjust'
 // Stylesheet
 import './index.scss';
 
-function Navbar({ onClick, onChange, value }) {
+function Navbar({ onClick, onChange, value, onClickOrder }) {
 
   const data = [
-    { name: 'Stars' },
-    { name: 'Forks' },
-    { name: 'Opens Issues' },
-    { name: 'Age' },
-    { name: 'Last Commit' },
+    { name: 'Stars', key: 'stargazers_count' },
+    { name: 'Forks', key: 'forks_count' },
+    { name: 'Opens Issues', key: 'open_issues' },
+    { name: 'Age', key: 'created_at' },
+    { name: 'Last Commit', key: 'updated_at' },
   ]
 
   return (
@@ -33,7 +33,7 @@ function Navbar({ onClick, onChange, value }) {
         title="Filter and order"
         titleOptions="ORDER BY"
         data={data}
-        onClick={() => {}}
+        onClick={onClickOrder}
       />
       <Search 
         style={{ width: 519 }}
@@ -60,6 +60,7 @@ function Navbar({ onClick, onChange, value }) {
 Navbar.propTypes = {
   onClick: PropTypes.func,
   onChange: PropTypes.func,
+  onClickOrder: PropTypes.func,
   value: PropTypes.string,
 }
 

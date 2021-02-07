@@ -31,7 +31,7 @@ function DropdownFilter({ data, title, titleOptions, onClick }) {
         <div className='dropdown-filter_body'>
           <text className='dropdown-filter_body_title-options'>{titleOptions}</text>
           {data.map(item => (
-            <button onClick={() => onClickButton(item.name)}>
+            <button onClick={() => onClickButton(item.key)}>
               <text>{item.name}</text>
             </button>
           ))}
