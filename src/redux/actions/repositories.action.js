@@ -2,6 +2,7 @@
 import * as Repositories from 'api/repositories';
 // Actions
 import { pending, fulfilled, rejected } from './async.action';
+import { show } from 'redux/actions/popup.action';
 
 const TEMPLATE_NAME = 'REPOSITORIES';
 
@@ -12,6 +13,7 @@ export const add = term => {
       const { total_count, items } = payload;
       if (total_count > 0) {
         dispatch(fulfilled(`${TEMPLATE_NAME}_ADD`, items[0]))
+        dispatch(show(false));
       } else {
         dispatch(rejected(`${TEMPLATE_NAME}_ADD`, { key: "repo_not-fount" }))
       }
