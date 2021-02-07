@@ -73,12 +73,14 @@ function Navbar() {
       </div>
       <div className='nav_title'>GitHub Compare</div>
       <DropdownFilter 
+        dataTestId='nav_title-dropdonw'
         title="Filter and order"
         titleOptions="ORDER BY"
         data={data}
         onClick={onClickOrder}
       />
       <Search 
+        dataTestId='nav_search'
         style={{ width: '519px' }}
         placeholder="Search"
         onChange={onChange}
@@ -94,7 +96,10 @@ function Navbar() {
         <Cards2Icon />
       </div>
       <div className='nav_button-add'>
-        <ButtonPlus onClick={() => showPopup(!isOpened)} />
+        <ButtonPlus
+          dataTestId='nav_button-add-testid'
+          onClick={() => showPopup(!isOpened)} 
+        />
       </div>
     </div>
   );

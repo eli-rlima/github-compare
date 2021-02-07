@@ -8,10 +8,11 @@ import SearchIcon from 'assets/icons/search';
 // Stylesheet
 import './index.scss';
 
-function Search({ value, onChange, style, placeholder, error }) {
+function Search({ value, onChange, style, placeholder, error, dataTestId }) {
   return (
     <div className='search'>
-      <Input 
+      <Input
+          dataTestId={dataTestId}
           value={value}
           onChange={onChange}
           style={style}

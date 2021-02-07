@@ -4,9 +4,10 @@ import PropTypes from 'prop-types';
 // Stylesheet
 import './index.scss';
 
-function ButtonAdd({ onClick, disabled }) {
+function ButtonAdd({ onClick, disabled, dataTestId }) {
   return (
     <button
+      data-testid={dataTestId}
       className={!disabled ? 'btn-add' : 'btn-add_disabled'}
       onClick={!disabled ? onClick : () => {}}
     >

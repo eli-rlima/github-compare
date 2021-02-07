@@ -8,7 +8,7 @@ import CaretBottomIcon from 'assets/icons/caret-bottom';
 // Stylesheet
 import './index.scss';
 
-function DropdownFilter({ data, title, titleOptions, onClick }) {
+function DropdownFilter({ data, title, titleOptions, onClick, dataTestId }) {
   const [isOpened, setIsOpened] = useState(false)
 
   const onClickButton = name => {
@@ -20,6 +20,7 @@ function DropdownFilter({ data, title, titleOptions, onClick }) {
     <div className='dropdown-filter'>
       <div className='dropdown-filter_title'>
         <button 
+          data-testid={dataTestId}
           className={isOpened ? 'dropdown-filter_title_button_active' : 'dropdown-filter_title_button'} 
           onClick={() => setIsOpened(!isOpened)}
         >
@@ -28,7 +29,7 @@ function DropdownFilter({ data, title, titleOptions, onClick }) {
         </button>
       </div>
       <ConditionalWrapper condition={isOpened}>
-        <div className='dropdown-filter_body'>
+        <div className='dropdown-filter_body' data-testid='dropdown-filter_body-testid'>
           <text className='dropdown-filter_body_title-options'>{titleOptions}</text>
           {data.map((item, index) => (
             <button key={index} onClick={() => onClickButton(item.key)}>

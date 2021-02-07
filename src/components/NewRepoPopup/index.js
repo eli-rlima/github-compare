@@ -47,7 +47,7 @@ function NewRepoModal() {
 
   return (
     <ConditionalWrapper condition={isOpened}>
-      <div className='new-repo'>
+      <div className='new-repo' data-testid='new_repo-testid'>
         <div className='new-repo_title'>
           <text>New Repository</text>
         </div>
@@ -56,7 +56,8 @@ function NewRepoModal() {
             text="Repository"
             obligatory={true}
           />
-          <Input 
+          <Input
+            dataTestId='new-repo_input-testid'
             style={{ margin: "4px 24px" }}
             error={error}
             onChange={onChange}
@@ -72,6 +73,7 @@ function NewRepoModal() {
             onClick={onClickCancel}
           />
           <ButtonAdd
+            dataTestId='new-repo_button-add-testid'
             onClick={() => onClickAdd(repoName)}
             disabled={error || repoName === ''}
           />
