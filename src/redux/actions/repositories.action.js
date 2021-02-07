@@ -23,6 +23,13 @@ export const add = term => {
   }
 }
 
+export const remove = id => {
+  return {
+    type: `${TEMPLATE_NAME}_REMOVE`,
+    payload: id,
+  };
+}
+
 export const search = term => {
   return {
     type: `${TEMPLATE_NAME}_SEARCH`,

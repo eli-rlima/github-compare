@@ -7,6 +7,7 @@ import Navbar from 'components/Navbar';
 import EmptyState from 'components/EmptyState';
 import NewRepoPopup from 'components/NewRepoPopup';
 import Grid from 'components/Grid';
+import DeleteModal from 'components/DeleteModal';
 // Actions
 import { show } from 'redux/actions/popup.action';
 import { search as searchAction, orderBy } from 'redux/actions/repositories.action';
@@ -57,6 +58,7 @@ function App() {
         {dataFilter.length > 0 ? <Grid data={dataFilter} as="grid" /> : <EmptyState />}
       </div>
       <NewRepoPopup />
+      <DeleteModal />
     </div>
   );
 }

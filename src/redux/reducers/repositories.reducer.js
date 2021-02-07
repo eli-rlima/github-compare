@@ -80,6 +80,18 @@ const reducer = (state = initialState(), action) => {
           },
       };
     }
+    case `${TEMPLATE_NAME}_REMOVE`: {
+      const id = action.payload;
+      const newData = state.data.filter(item => item.id !== id);
+      return {
+          ...state,
+          data: newData,
+          filter: {
+              ...state.filter,
+              data: filterData(newData, state.filter.term),
+          },
+      };
+    }
     case `${TEMPLATE_NAME}_ERROR`: {
       const error = action.payload;
       return {

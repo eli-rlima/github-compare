@@ -8,7 +8,7 @@ import TrashIcon from 'assets/icons/trash';
 // Stylesheet
 import './index.scss';
 
-function Card({ name, startsCount, forksCount, openIssues, age, lastCommit, license, language, urlAvatar }) {
+function Card({ onClickRemove, name, startsCount, forksCount, openIssues, age, lastCommit, license, language, urlAvatar }) {
   return (
     <div className='card'>
       <div className='card_header'>
@@ -18,7 +18,7 @@ function Card({ name, startsCount, forksCount, openIssues, age, lastCommit, lice
           <StarIcon />
         </div>
         <div className='card_header_trash-icon'>
-          <TrashIcon />
+          <TrashIcon onClick={onClickRemove}/>
         </div>
       </div>
       <div className='card_body'>
@@ -63,7 +63,7 @@ Card.propTypes = {
   openIssues: PropTypes.number,
   age: PropTypes.string,
   lastCommit: PropTypes.string,
-  license: PropTypes.string,
+  license: PropTypes.instanceOf(Object),
   language: PropTypes.string,
   urlAvatar: PropTypes.string,
 }
