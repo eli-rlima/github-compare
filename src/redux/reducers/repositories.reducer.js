@@ -58,7 +58,7 @@ const reducer = (state = initialState(), action) => {
         data,
         filter: {
           ...state.filter,
-          data: filterData(data, state.filter.term),
+          data: state.filter.favoriteFilter ? favoriteFilterData(data) : filterData(data, state.filter.term),
         }
       }
     }
@@ -75,7 +75,9 @@ const reducer = (state = initialState(), action) => {
           filter: {
               ...state.filter,
               term,
-              data: filterData(state.data, term),
+              data: state.filter.favoriteFilter 
+                ? filterData(favoriteFilterData(state.data), term) 
+                : filterData(state.data, term),
           },
       };
     }
@@ -116,7 +118,7 @@ const reducer = (state = initialState(), action) => {
           data: newData,
           filter: {
               ...state.filter,
-              data: state.filter.favoriteFilter ? favoriteFilterData(newData) : filterData(newData, state.filter.term),
+              data: state.filter.favoriteFilter ? filterData(favoriteFilterData(newData), state.filter.term) : filterData(newData, state.filter.term),
           },
       };
     }
@@ -129,7 +131,7 @@ const reducer = (state = initialState(), action) => {
           ...state,
           filter: {
               ...state.filter,
-              data: newData,
+              data: filterData(newData, state.filter.term),
               favoriteFilter: value,
           },
       };
