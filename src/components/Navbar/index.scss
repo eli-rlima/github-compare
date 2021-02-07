@@ -22,45 +22,40 @@
     color: #6B6C7E;
   }
 
-  &_filter {
-    font-style: normal;
-    font-weight: 600;
-    font-size: 14px;
-    line-height: 150%;
-    align-items: center;
-    text-align: center;
-    color: #6B6C7E;
-  }
-
-  &_search {
-    width: 519px;
-    height: 40px;
-    padding: 8px 16px;
-    background: #F1F2F5;
-    border: 1px solid #E7E7ED;
-    box-sizing: border-box;
-    border-radius: 4px 0px;
-  }
-
   &_star-o {
-    width: 15.94px;
-    height: 15.94px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 8.03px;
     cursor: pointer;
+
+    svg {
+      width: 15.94px;
+      height: 15.94px;
+    }
+
+    &:hover {
+      background: rgba(39, 40, 51, 0.04);
+      border-radius: 4px;
+    }
   }
 
   &_adjust {
     width: 16px;
     height: 16px;
+    padding: 8.03px;
     cursor: pointer;
   }
 
   &_cards2 {
+    padding: 8.03px;
     width: 16px;
     height: 16px;
     cursor: pointer;
   }
 
   &_button-add {
+    padding: 8.03px;
     margin-right: 3%;
     cursor: pointer;
   }
