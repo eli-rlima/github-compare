@@ -16,7 +16,7 @@ export function toSearchableString(str) {
 */
 export const sortByDateDesc = (array, key) => array.sort(
   function (a, b) {
-    return compareDesc(new Date(b[key]), new Date(a[key]));
+    return compareDesc(new Date(a[key]), new Date(b[key]));
   }
 );
 
