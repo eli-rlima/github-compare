@@ -30,6 +30,7 @@ const initialState = () => ({
   filter: {
     data: [],
     term: '',
+    favoriteFilter: false,
   }
 });
 
@@ -115,7 +116,7 @@ const reducer = (state = initialState(), action) => {
           data: newData,
           filter: {
               ...state.filter,
-              data: filterData(newData, state.filter.term),
+              data: state.filter.favoriteFilter ? favoriteFilterData(newData) : filterData(newData, state.filter.term),
           },
       };
     }
@@ -129,6 +130,7 @@ const reducer = (state = initialState(), action) => {
           filter: {
               ...state.filter,
               data: newData,
+              favoriteFilter: value,
           },
       };
     }

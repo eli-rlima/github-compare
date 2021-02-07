@@ -16,8 +16,16 @@ function DropdownFilter({ data, title, titleOptions, onClick, dataTestId }) {
     onClick(name);
   };
 
+  window.addEventListener('click', e => {
+    if (!document.getElementById('dropdown-filter').contains(e.target)) {
+      if (isOpened) {
+        setIsOpened(false);
+      }
+    }
+  })
+
   return (
-    <div className='dropdown-filter'>
+    <div className='dropdown-filter' id='dropdown-filter'>
       <div className='dropdown-filter_title'>
         <button 
           data-testid={dataTestId}
