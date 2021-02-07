@@ -12,6 +12,10 @@ const filterData = (data, term) => {
   });
 };
 
+const favoriteFilterData = data => {
+  return data.filter(item => item.favorite);
+};
+
 const orderByData = (data, key) => {
   if (key === 'created_at' || key === 'updated_at') {
     return sortByDateDesc(data, key)
@@ -38,7 +42,11 @@ const reducer = (state = initialState(), action) => {
       }
     }
     case `${TEMPLATE_NAME}_ADD_FULFILLED`: {
-      const repository = action.payload;
+      let repository = action.payload;
+      repository = {
+        favorite: false,
+        ...repository,
+      };
       const { id } = repository;
       const repositoryExists = state.data.filter(repo => repo.id === id).length > 0;
       const data = repositoryExists ? state.data : [repository, ...state.data];
@@ -89,6 +97,38 @@ const reducer = (state = initialState(), action) => {
           filter: {
               ...state.filter,
               data: filterData(newData, state.filter.term),
+          },
+      };
+    }
+    case `${TEMPLATE_NAME}_FAVORITE`: {
+      const { id, value } = action.payload;
+      const newData = state.data.map(item => {
+        if (item.id === id) {
+          item.favorite = value;
+          return item;
+        }
+        return item;
+      });
+
+      return {
+          ...state,
+          data: newData,
+          filter: {
+              ...state.filter,
+              data: filterData(newData, state.filter.term),
+          },
+      };
+    }
+    case `${TEMPLATE_NAME}_FAVORITE_FILTER`: {
+      const value = action.payload;
+      const data = state.data;
+      const newData = value ? favoriteFilterData(data) : data;
+
+      return {
+          ...state,
+          filter: {
+              ...state.filter,
+              data: newData,
           },
       };
     }

@@ -2,20 +2,21 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { formatDistanceStrict } from 'date-fns'
+// Components
+import ButtonFavorite from 'components/common/ButtonFavorite';
 // Assets
-import StarIcon from 'assets/icons/star-o';
 import TrashIcon from 'assets/icons/trash';
 // Stylesheet
 import './index.scss';
 
-function Card({ onClickRemove, name, startsCount, forksCount, openIssues, age, lastCommit, license, language, urlAvatar }) {
+function Card({ favorite, onClickFavorite, onClickRemove, name, startsCount, forksCount, openIssues, age, lastCommit, license, language, urlAvatar }) {
   return (
     <div className='card'>
       <div className='card_header'>
         <img src={urlAvatar} alt='' />
         <text>{name}</text>
         <div className='card_header_star-icon'>
-          <StarIcon />
+          <ButtonFavorite onClick={onClickFavorite} value={favorite}/>
         </div>
         <div className='card_header_trash-icon'>
           <TrashIcon onClick={onClickRemove}/>
@@ -66,6 +67,8 @@ Card.propTypes = {
   license: PropTypes.instanceOf(Object),
   language: PropTypes.string,
   urlAvatar: PropTypes.string,
+  favorite: PropTypes.bool,
+  onClickFavorite: PropTypes.func,
 }
 
 export default Card;

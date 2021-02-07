@@ -30,6 +30,20 @@ export const remove = id => {
   };
 }
 
+export const favorite = (id, value) => {
+  return {
+    type: `${TEMPLATE_NAME}_FAVORITE`,
+    payload: { id, value },
+  };
+}
+
+export const favoriteFilter = value => {
+  return {
+    type: `${TEMPLATE_NAME}_FAVORITE_FILTER`,
+    payload: value,
+  };
+}
+
 export const search = term => {
   return {
     type: `${TEMPLATE_NAME}_SEARCH`,

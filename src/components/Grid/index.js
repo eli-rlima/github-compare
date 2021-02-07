@@ -6,6 +6,7 @@ import { useDispatch } from 'react-redux';
 import Card from 'components/Card';
 // Actions
 import { open } from 'redux/actions/delete-modal.action';
+import { favorite } from 'redux/actions/repositories.action';
 // Stylesheet
 import './index.scss';
 
@@ -16,6 +17,10 @@ function Grid({ as, data }) {
     dispatch(open(repository));
   }
 
+  const onClickFavorite = id => value => {
+    dispatch(favorite(id, value));
+  }
+
   return (
     <div className={as}>
       {data.map((item, index) => {
@@ -23,6 +28,8 @@ function Grid({ as, data }) {
           <Card
             key={index}
             onClickRemove={() => onClickRemove(item)}
+            onClickFavorite={onClickFavorite(item.id)}
+            favorite={item.favorite}
             name={item.full_name}
             age={item.created_at}
             forksCount={item.forks_count}

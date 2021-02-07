@@ -10,12 +10,17 @@ import Grid from 'components/Grid';
 import DeleteModal from 'components/DeleteModal';
 // Actions
 import { show } from 'redux/actions/popup.action';
-import { search as searchAction, orderBy } from 'redux/actions/repositories.action';
+import { 
+  search as searchAction,
+  orderBy,
+  favoriteFilter as favoriteFilterAction, 
+} from 'redux/actions/repositories.action';
 // Stylesheet
 import './App.scss';
 
 function App() {
   const [search, setSearch] = useState('');
+  const [favoriteFilter, setFavoriteFilter] = useState(false);
   const dispatch = useDispatch();
   const { isOpened } = useSelector(state => state.popup);
   const { filter, data } = useSelector(state => state.repositories);
@@ -32,6 +37,11 @@ function App() {
 
   const onClickOrder = key => {
     dispatch(orderBy(key));
+  }
+
+  const onClickFavoriteFilter = () => {
+    setFavoriteFilter(!favoriteFilter);
+    dispatch(favoriteFilterAction(!favoriteFilter));
   }
 
   const clearSearch = () => {
@@ -52,7 +62,9 @@ function App() {
         onClick={() => showPopup(!isOpened)}
         onClickOrder={onClickOrder}
         onChange={onChange}
+        onClickFavoriteFilter={onClickFavoriteFilter}
         value={search}
+        valueFavoriteFilter={favoriteFilter}
       />
       <div className='body'>
         {dataFilter.length > 0 ? <Grid data={dataFilter} as="grid" /> : <EmptyState />}

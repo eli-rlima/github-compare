@@ -5,15 +5,15 @@ import PropTypes from 'prop-types';
 import ButtonPlus from 'components/common/ButtonPlus';
 import Search from 'components/common/Search';
 import DropdownFilter from 'components/common/DropdownFilter';
+import ButtonFavorite from 'components/common/ButtonFavorite';
 // Assets
 import GitHubLogo from 'assets/logo/github_logo';
-import StarIcon from 'assets/icons/star-o';
 import Cards2Icon from 'assets/icons/cards2';
 import AdjustIcon from 'assets/icons/adjust'
 // Stylesheet
 import './index.scss';
 
-function Navbar({ onClick, onChange, value, onClickOrder }) {
+function Navbar({ onClick, onChange, value, onClickOrder, onClickFavoriteFilter, valueFavoriteFilter }) {
 
   const data = [
     { name: 'Stars', key: 'stargazers_count' },
@@ -42,7 +42,7 @@ function Navbar({ onClick, onChange, value, onClickOrder }) {
         value={value}
       />
       <div className='nav_star-o'>
-        <StarIcon />
+        <ButtonFavorite onClick={onClickFavoriteFilter} value={valueFavoriteFilter} />
       </div>
       <div className='nav_adjust'>
         <AdjustIcon />
