@@ -30,8 +30,8 @@ function DropdownFilter({ data, title, titleOptions, onClick }) {
       <ConditionalWrapper condition={isOpened}>
         <div className='dropdown-filter_body'>
           <text className='dropdown-filter_body_title-options'>{titleOptions}</text>
-          {data.map(item => (
-            <button onClick={() => onClickButton(item.key)}>
+          {data.map((item, index) => (
+            <button key={index} onClick={() => onClickButton(item.key)}>
               <text>{item.name}</text>
             </button>
           ))}
